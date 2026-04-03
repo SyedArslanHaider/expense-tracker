@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://expense-tracker-5ir6.onrender.com/api';
+const API_BASE_URL = 'https://expense-tracker-sir6.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -8,7 +8,6 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: false,
 });
 
 export default api;
