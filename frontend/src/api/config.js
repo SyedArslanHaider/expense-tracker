@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-// Make sure this is the correct backend URL
-const API_BASE_URL = 'http://localhost:5000/api';
+// Use different URLs for development and production
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://expense-tracker-5ir6.onrender.com/api'
+  : 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
