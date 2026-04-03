@@ -17,6 +17,9 @@ const Expenses = () => {
   const [selectedUser, setSelectedUser] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
+  // Use the live backend URL
+  const API_URL = 'https://expense-tracker-sir6.onrender.com/api';
+
   const categories = [
     'Food',
     'Groceries',
@@ -33,7 +36,7 @@ const Expenses = () => {
 
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/expenses');
+      const response = await axios.get(`${API_URL}/expenses`);
       setExpenses(response.data);
     } catch (error) {
       console.error('Error fetching expenses:', error);
@@ -44,7 +47,7 @@ const Expenses = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users');
+      const response = await axios.get(`${API_URL}/users`);
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -54,7 +57,7 @@ const Expenses = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/expenses', formData);
+      await axios.post(`${API_URL}/expenses`, formData);
       setShowForm(false);
       setFormData({
         user_id: '',
@@ -73,7 +76,7 @@ const Expenses = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this expense?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/expenses/${id}`);
+        await axios.delete(`${API_URL}/expenses/${id}`);
         fetchExpenses();
       } catch (error) {
         console.error('Error deleting expense:', error);
