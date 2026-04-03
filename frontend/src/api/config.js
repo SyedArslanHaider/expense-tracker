@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// Make sure this is the correct backend URL
-//const API_BASE_URL = 'http://localhost:5000/api';
 const API_BASE_URL = 'https://expense-tracker-5ir6.onrender.com/api';
 
 const api = axios.create({
@@ -10,37 +8,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: false,
 });
-
-// Add request interceptor for debugging
-api.interceptors.request.use(
-  config => {
-    console.log(`📤 API Request: ${config.method.toUpperCase()} ${config.baseURL}${config.url}`);
-    return config;
-  },
-  error => {
-    console.error('Request Error:', error);
-    return Promise.reject(error);
-  }
-);
-
-// Add response interceptor for debugging
-api.interceptors.response.use(
-  response => {
-    console.log(`📥 API Response: ${response.config.url}`, response.status);
-    return response;
-  },
-  error => {
-    console.error('API Error Details:', {
-      message: error.message,
-      url: error.config?.url,
-      baseURL: error.config?.baseURL,
-      method: error.config?.method,
-      status: error.response?.status,
-      data: error.response?.data
-    });
-    return Promise.reject(error);
-  }
-);
 
 export default api;
