@@ -6,7 +6,7 @@ const API_BASE_URL = 'https://expense-tracker-5ir6.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
   },
