@@ -17,7 +17,7 @@ const Users = () => {
   const fetchUsers = async () => {
     try {
       //const response = await axios.get('http://localhost:5000/api/users');
-      const response = await axios.get('https://expense-tracker-sir6.onrender.com/api/users');
+      const response = await axios.get('https://expense-tracker-5ir6.onrender.com/api');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -30,7 +30,7 @@ const Users = () => {
     e.preventDefault();
     try {
       // await axios.post('http://localhost:5000/api/users', formData);
-      await axios.post('https://expense-tracker-sir6.onrender.com/api/users', formData);
+      await axios.post('https://expense-tracker-5ir6.onrender.com/api/users', formData);
       setShowForm(false);
       setFormData({ name: '', email: '' });
       fetchUsers();
@@ -44,7 +44,7 @@ const Users = () => {
     if (window.confirm('Are you sure you want to delete this user? This will also delete all their expenses.')) {
       try {
         // await axios.delete(`http://localhost:5000/api/users/${id}`);
-        await axios.delete(`https://expense-tracker-sir6.onrender.com/api/users/${id}`);
+        await axios.delete(`https://expense-tracker-5ir6.onrender.com/api/users/${id}`);
         fetchUsers();
       } catch (error) {
         console.error('Error deleting user:', error);

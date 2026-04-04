@@ -5,7 +5,7 @@ import Expenses from './pages/Expenses';
 import Users from './pages/Users';
 import MonthlySummary from './pages/MonthlySummary';
 // Force the API URL globally
-window.API_URL = 'https://expense-tracker-sir6.onrender.com/api';
+window.API_URL = 'https://expense-tracker-5ir6.onrender.com/api';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

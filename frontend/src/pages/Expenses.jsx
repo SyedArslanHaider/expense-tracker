@@ -18,7 +18,7 @@ const Expenses = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Use the live backend URL
-  const API_URL = 'https://expense-tracker-sir6.onrender.com/api';
+  const API_URL = 'https://expense-tracker-5ir6.onrender.com/api';
 
   const categories = [
     'Food',
