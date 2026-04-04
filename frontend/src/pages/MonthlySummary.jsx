@@ -7,13 +7,16 @@ const MonthlySummary = () => {
   const [loading, setLoading] = useState(true);
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
 
+  // Use the live backend URL
+  const API_URL = 'https://expense-tracker-sir6.onrender.com/api';
+
   useEffect(() => {
     fetchSummary();
   }, [selectedMonth]);
 
   const fetchSummary = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/expenses/summary/${selectedMonth}`);
+      const response = await axios.get(`${API_URL}/expenses/summary/${selectedMonth}`);
       setSummary(response.data);
     } catch (error) {
       console.error('Error fetching summary:', error);
