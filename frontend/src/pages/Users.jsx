@@ -17,7 +17,7 @@ const Users = () => {
   const fetchUsers = async () => {
     try {
       //const response = await axios.get('http://localhost:5000/api/users');
-      const response = await axios.get('https://expense-tracker-5ir6.onrender.com/api');
+      const response = await axios.get('https://expense-tracker-5ir6.onrender.com/api/users');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
