@@ -1,12 +1,180 @@
-# React + Vite
+# 🏠 Shared Apartment Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application to manage shared apartment expenses, split bills, and calculate balances automatically.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## Expanding the ESLint configuration
+- **Frontend:** [https://vocal-treacle-f65b91.netlify.app/](https://rxpensemang.netlify.app/)
+- **Backend API:** [https://expense-tracker-5ir6.onrender.com/api/test](https://expense-tracker-5ir6.onrender.com/api/test)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📖 About The Project
+
+Managing shared expenses with roommates can be messy and confusing. This app simplifies everything by providing a clean interface to track expenses, split bills, and calculate balances in real-time.
+
+---
+
+## 🎯 Problem
+
+- Multiple people buying shared items
+- No centralized tracking
+- Manual calculations are error-prone
+- Lack of transparency
+
+---
+
+## 💡 Solution
+
+- Track all expenses in one place
+- Automatically split rent and expenses
+- Real-time balance calculation
+- Monthly summaries
+
+---
+
+## ✨ Features
+
+- ✅ User Management
+- ✅ Expense Tracking
+- ✅ Automatic Calculations
+- ✅ Monthly Summary
+- ✅ Responsive Design
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React + Vite + Tailwind CSS
+- **Backend:** Node.js + Express
+- **Database:** PostgreSQL (Neon)
+- **Hosting:** Netlify (Frontend), Render (Backend)
+
+---
+
+## 🏗️ Architecture
+
+Frontend (Netlify) → Backend API (Render) → Database (Neon)
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone Repo
+
+```bash
+git clone https://github.com/SyedArslanHaider/expense-tracker.git
+cd expense-tracker
+```
+
+### 2. Backend Setup
+
+```bash
+cd backend
+npm install
+node server.js
+```
+
+Create `.env`:
+
+```env
+PORT=5000
+DATABASE_URL=your_database_url
+```
+
+### 3. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Create `.env`:
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+---
+
+## 📡 API Endpoints
+
+### Users
+
+- GET `/api/users`
+- POST `/api/users`
+- DELETE `/api/users/:id`
+
+### Expenses
+
+- GET `/api/expenses`
+- POST `/api/expenses`
+- DELETE `/api/expenses/:id`
+- GET `/api/expenses/summary/:month`
+
+---
+
+## 🗄️ Database Schema
+
+### Users
+
+```sql
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100)
+);
+```
+
+### Expenses
+
+```sql
+CREATE TABLE expenses (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  description TEXT,
+  amount DECIMAL,
+  category VARCHAR(50),
+  date DATE
+);
+```
+
+---
+
+## 🚀 Deployment
+
+### Frontend (Netlify)
+
+- Build: `npm run build`
+- Publish: `dist`
+
+### Backend (Render)
+
+- Start: `node server.js`
+
+### Database (Neon)
+
+- PostgreSQL cloud database
+
+---
+
+## 🔮 Future Improvements
+
+- Charts & Analytics
+- Authentication
+- Notifications
+- Export to CSV
+
+---
+
+## 📞 Contact
+
+**Syed Arslan Haider**
+GitHub: [https://github.com/SyedArslanHaider](https://github.com/SyedArslanHaider)
+
+---
+
+⭐ If you like this project, give it a star!
